@@ -24,7 +24,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.powerupp, function (sprite, othe
         `, SpriteKind.Player)
     double_fire_mode.setPosition(48, 7)
     double_fire_mode.lifespan = 5000
-    otherSprite.destroy()
+    otherSprite.destroy(effects.spray, 500)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(img`
@@ -268,18 +268,18 @@ forever(function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        . . . . . 2 7 2 7 2 7 2 . . . . 
-        . . . . . . 2 7 2 7 2 . . . . . 
-        . . . . . . 2 7 2 7 2 . . . . . 
-        . . . . . . . 7 2 7 . . . . . . 
-        . . . . . . . 2 7 2 . . . . . . 
-        . . . . . . . . 5 . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . . . 7 7 7 7 7 . . . . . 
+        . . . . . . f 7 7 7 f . . . . . 
+        . . . . . . 7 7 7 7 7 . . . . . 
+        . . . . . . 7 7 7 7 7 . . . . . 
+        . . . . . . 7 7 7 7 7 . . . . . 
+        . . . . . . 6 6 6 6 6 . . . . . 
+        . . . . . . 6 6 6 6 6 . . . . . 
+        . . . . . . 6 6 6 6 6 . . . . . 
+        . . . . . . 6 6 6 6 6 . . . . . 
+        . . . . . . 6 6 6 6 6 . . . . . 
+        . . . . . . 6 6 6 6 6 . . . . . 
         `, SpriteKind.Enemy)
     enemyship.x = scene.screenWidth()
     enemyship.vx = 0 - enemyspeed
