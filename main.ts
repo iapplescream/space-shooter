@@ -321,6 +321,10 @@ forever(function () {
     statusbar.attachToSprite(enemyship)
     pause(enemyspawntime)
 })
+forever(function () {
+    info.changeLifeBy(1)
+    pause(100000)
+})
 game.onUpdateInterval(500, function () {
     enemyspeed = 20
     enemyspeed += 0
