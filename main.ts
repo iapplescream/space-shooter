@@ -77,7 +77,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     pause(5000)
 })
 function enemydeath (enemy: Sprite) {
-    enemy.destroy(effects.fire, 5000)
+    enemyship.destroy(effects.ashes, 5000)
     if (Math.percentChance(10)) {
         power_up = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -103,11 +103,12 @@ function enemydeath (enemy: Sprite) {
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
-    scene.cameraShake(4, 5000)
+    scene.cameraShake(2, 5000)
     enemydeath(otherSprite)
+    pause(5000)
 })
-let enemyship: Sprite = null
 let power_up: Sprite = null
+let enemyship: Sprite = null
 let statusbar: StatusBarSprite = null
 let projectile: Sprite = null
 let double_fire_mode: Sprite = null
@@ -259,7 +260,7 @@ info.setLife(5)
 let enemyspeed = 20
 let enemyspawntime = 2000
 game.onUpdateInterval(2000, function () {
-	
+    mySprite.sayText(":)")
 })
 forever(function () {
     enemyship = sprites.create(img`
@@ -284,6 +285,7 @@ forever(function () {
     enemyship.vx = 0 - enemyspeed
     enemyship.y = randint(10, scene.screenHeight() - 10)
     statusbar = statusbars.create(10, 2, StatusBarKind.EnemyHealth)
+    enemyship.follow(mySprite, 30)
     statusbar.setColor(9, 2)
     statusbar.max = 100
     statusbar.attachToSprite(enemyship)
@@ -312,6 +314,7 @@ forever(function () {
     enemyship.vx = 0 - enemyspeed
     enemyship.y = randint(10, scene.screenHeight() - 10)
     statusbar = statusbars.create(10, 2, StatusBarKind.EnemyHealth)
+    enemyship.follow(mySprite, 30)
     statusbar.value += 200
     statusbar.setColor(9, 2)
     statusbar.max = 300
