@@ -105,7 +105,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     info.changeLifeBy(-1)
     scene.cameraShake(2, 5000)
     enemydeath(otherSprite)
-    pause(5000)
+    pause(2000)
 })
 let power_up: Sprite = null
 let enemyship: Sprite = null
